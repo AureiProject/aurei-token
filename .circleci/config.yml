@@ -1,0 +1,35 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    working_directory: ~/artikodin-contracts
+    steps:
+      - checkout
+      - run: |
+            echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
+            echo ' [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
+      - run: |
+          nvm install v10
+          nvm alias default v10
+      - run:
+          name: install-npm-wee
+          command: npm install
+      - run:
+          name: install-truffle
+          command: npm install -g truffle
+      - run: npm install -g ganache-cli
+      - run:
+          name: build
+          command: npm run build-ci
+      - run:
+          name: Run Ganache
+          command: ganache-cli -l 8000000
+          background: true
+      - run:
+          name: test
+          command: npm run test-ci
+      - store_artifacts:
+          path: test-results.xml
+          prefix: tests
+      - store_test_results:
+          path: test-results.xml

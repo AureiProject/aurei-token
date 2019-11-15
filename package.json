@@ -1,0 +1,35 @@
+{
+  "name": "magmar-contracts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "truffle test",
+    "build-ci": "truffle compile",
+    "test-ci": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blockchainpartner/magmar-contracts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blockchainpartner/magmar-contracts/issues"
+  },
+  "homepage": "https://github.com/Blockchainpartner/magmar-contracts#readme",
+  "dependencies": {
+    "openzeppelin-solidity": "2.3.0"
+  },
+  "devDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "bignumber.js": "^9.0.0",
+    "chai": "^4.2.0",
+    "solidity-coverage": "^0.6.7",
+    "truffle-assertions": "^0.9.1"
+  }
+}
